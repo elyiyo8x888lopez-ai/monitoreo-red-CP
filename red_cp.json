@@ -1,0 +1,270 @@
+[
+    {
+        "id": "CORE-L3",
+        "nombre": "Switch-Capa-3",
+        "tipo": "Switch-L3",
+        "ip": "10.0.0.1",
+        "detalles": "Núcleo central - Enlaces Gig1/0/x - OSPF Area 0",
+        "dependencias": []
+    },
+    {
+        "id": "RTR-GOBIERNO",
+        "nombre": "Router-de-Gobierno",
+        "tipo": "Router",
+        "ip": "10.0.0.2",
+        "detalles": "Gateway exterior y Servidor DHCP Centralizado",
+        "dependencias": [
+            "Switch-Capa-3"
+        ]
+    },
+    {
+        "id": "RTR-ESTADISTICA",
+        "nombre": "Router-Estadistica",
+        "tipo": "Router",
+        "ip": "10.0.0.11",
+        "detalles": "Gig0/0/0 | Subinterfaces .10, .20, .30 (dot1Q) | DHCP Relay + OSPF",
+        "dependencias": [
+            "Switch-Capa-3"
+        ]
+    },
+    {
+        "id": "SW-ESTADISTICA",
+        "nombre": "Switch-Estadistica-Acceso",
+        "tipo": "Switch-L2",
+        "ip": "192.168.1.2",
+        "detalles": "Trunk en fa0/1-3",
+        "dependencias": [
+            "Router-Estadistica"
+        ]
+    },
+    {
+        "id": "Host-Trabajadores-Estadistica",
+        "nombre": "Equipo-VLAN10-Estadistica",
+        "tipo": "Host-Trabajadores",
+        "ip": "192.168.1.10/25",
+        "vlan": "VLAN 10 (Puertos fa0/2-6)",
+        "dependencias": [
+            "Switch-Estadistica-Acceso"
+        ]
+    },
+    {
+        "id": "Host-Estudiantes-Estadistica",
+        "nombre": "Equipo-VLAN20-Estadistica",
+        "tipo": "Host-Estudiantes",
+        "ip": "192.168.1.130/26",
+        "vlan": "VLAN 20 (Puertos fa0/7-11)",
+        "dependencias": [
+            "Switch-Estadistica-Acceso"
+        ]
+    },
+    {
+        "id": "Impresora-Estadistica",
+        "nombre": "Equipo-VLAN30-Estadistica",
+        "tipo": "Impresora",
+        "ip": "192.168.1.194/29",
+        "vlan": "VLAN 30 (Puertos fa0/12-17)",
+        "dependencias": [
+            "Switch-Estadistica-Acceso"
+        ]
+    },
+    {
+        "id": "RTR-FITOLOGIA",
+        "nombre": "Router-Fitologia",
+        "tipo": "Router",
+        "ip": "10.0.0.12",
+        "detalles": "Gig0/0/0 | Subinterfaces .10, .20, .30 (dot1Q) | DHCP Relay + OSPF",
+        "dependencias": [
+            "Switch-Capa-3"
+        ]
+    },
+    {
+        "id": "SW-FITOLOGIA",
+        "nombre": "Switch-Fitologia-Acceso",
+        "tipo": "Switch-L2",
+        "ip": "192.168.2.2",
+        "detalles": "Trunk en fa0/1-3",
+        "dependencias": [
+            "Router-Fitologia"
+        ]
+    },
+    {
+        "id": "Host-Trabajadores-Fitologia",
+        "nombre": "Equipo-VLAN10-Fitologia",
+        "tipo": "Host-Trabajadores",
+        "ip": "192.168.2.10/25",
+        "vlan": "VLAN 10 (Puertos fa0/2-6)",
+        "dependencias": [
+            "Switch-Fitologia-Acceso"
+        ]
+    },
+    {
+        "id": "Host-Estudiantes-Fitologia",
+        "nombre": "Equipo-VLAN20-Fitologia",
+        "tipo": "Host-Estudiantes",
+        "ip": "192.168.2.130/26",
+        "vlan": "VLAN 20 (Puertos fa0/7-11)",
+        "dependencias": [
+            "Switch-Fitologia-Acceso"
+        ]
+    },
+    {
+        "id": "Impresora-Fitologia",
+        "nombre": "Equipo-VLAN30-Fitologia",
+        "tipo": "Impresora",
+        "ip": "192.168.2.194/29",
+        "vlan": "VLAN 30 (Puertos fa0/12-17)",
+        "dependencias": [
+            "Switch-Fitologia-Acceso"
+        ]
+    },
+    {
+        "id": "RTR-ALMACEN",
+        "nombre": "Router-Almacen",
+        "tipo": "Router",
+        "ip": "10.0.0.13",
+        "detalles": "Gig0/0/0 | Subinterfaces .10, .20, .30 (dot1Q) | DHCP Relay + OSPF",
+        "dependencias": [
+            "Switch-Capa-3"
+        ]
+    },
+    {
+        "id": "SW-ALMACEN",
+        "nombre": "Switch-Almacen-Acceso",
+        "tipo": "Switch-L2",
+        "ip": "192.168.3.2",
+        "detalles": "Trunk en fa0/1-3",
+        "dependencias": [
+            "Router-Almacen"
+        ]
+    },
+    {
+        "id": "Host-Trabajadores-Almacen",
+        "nombre": "Equipo-VLAN10-Almacen",
+        "tipo": "Host-Trabajadores",
+        "ip": "192.168.3.10/25",
+        "vlan": "VLAN 10 (Puertos fa0/2-6)",
+        "dependencias": [
+            "Switch-Almacen-Acceso"
+        ]
+    },
+    {
+        "id": "Host-Estudiantes-Almacen",
+        "nombre": "Equipo-VLAN20-Almacen",
+        "tipo": "Host-Estudiantes",
+        "ip": "192.168.3.130/26",
+        "vlan": "VLAN 20 (Puertos fa0/7-11)",
+        "dependencias": [
+            "Switch-Almacen-Acceso"
+        ]
+    },
+    {
+        "id": "Impresora-Almacen",
+        "nombre": "Equipo-VLAN30-Almacen",
+        "tipo": "Impresora",
+        "ip": "192.168.3.194/29",
+        "vlan": "VLAN 30 (Puertos fa0/12-17)",
+        "dependencias": [
+            "Switch-Almacen-Acceso"
+        ]
+    },
+    {
+        "id": "RTR-BIOLOGIA",
+        "nombre": "Router-Biologia",
+        "tipo": "Router",
+        "ip": "10.0.0.14",
+        "detalles": "Gig0/0/0 | Subinterfaces .10, .20, .30 (dot1Q) | DHCP Relay + OSPF",
+        "dependencias": [
+            "Switch-Capa-3"
+        ]
+    },
+    {
+        "id": "SW-BIOLOGIA",
+        "nombre": "Switch-Biologia-Acceso",
+        "tipo": "Switch-L2",
+        "ip": "192.168.4.2",
+        "detalles": "Trunk en fa0/1-3",
+        "dependencias": [
+            "Router-Biologia"
+        ]
+    },
+    {
+        "id": "Host-Trabajadores-Biologia",
+        "nombre": "Equipo-VLAN10-Biologia",
+        "tipo": "Host-Trabajadores",
+        "ip": "192.168.4.10/25",
+        "vlan": "VLAN 10 (Puertos fa0/2-6)",
+        "dependencias": [
+            "Switch-Biologia-Acceso"
+        ]
+    },
+    {
+        "id": "Host-Estudiantes-Biologia",
+        "nombre": "Equipo-VLAN20-Biologia",
+        "tipo": "Host-Estudiantes",
+        "ip": "192.168.4.130/26",
+        "vlan": "VLAN 20 (Puertos fa0/7-11)",
+        "dependencias": [
+            "Switch-Biologia-Acceso"
+        ]
+    },
+    {
+        "id": "Impresora-Biologia",
+        "nombre": "Equipo-VLAN30-Biologia",
+        "tipo": "Impresora",
+        "ip": "192.168.4.194/29",
+        "vlan": "VLAN 30 (Puertos fa0/12-17)",
+        "dependencias": [
+            "Switch-Biologia-Acceso"
+        ]
+    },
+    {
+        "id": "RTR-U_C",
+        "nombre": "Router-U_C",
+        "tipo": "Router",
+        "ip": "10.0.0.15",
+        "detalles": "Gig0/0/0 | Subinterfaces .10, .20, .30 (dot1Q) | DHCP Relay + OSPF",
+        "dependencias": [
+            "Switch-Capa-3"
+        ]
+    },
+    {
+        "id": "SW-U_C",
+        "nombre": "Switch-U_C-Acceso",
+        "tipo": "Switch-L2",
+        "ip": "192.168.5.2",
+        "detalles": "Trunk en fa0/1-3",
+        "dependencias": [
+            "Router-U_C"
+        ]
+    },
+    {
+        "id": "Host-Trabajadores-U_C",
+        "nombre": "Equipo-VLAN10-U_C",
+        "tipo": "Host-Trabajadores",
+        "ip": "192.168.5.10/25",
+        "vlan": "VLAN 10 (Puertos fa0/2-6)",
+        "dependencias": [
+            "Switch-U_C-Acceso"
+        ]
+    },
+    {
+        "id": "Host-Estudiantes-U_C",
+        "nombre": "Equipo-VLAN20-U_C",
+        "tipo": "Host-Estudiantes",
+        "ip": "192.168.5.130/26",
+        "vlan": "VLAN 20 (Puertos fa0/7-11)",
+        "dependencias": [
+            "Switch-U_C-Acceso"
+        ]
+    },
+    {
+        "id": "Impresora-U_C",
+        "nombre": "Equipo-VLAN30-U_C",
+        "tipo": "Impresora",
+        "ip": "192.168.5.194/29",
+        "vlan": "VLAN 30 (Puertos fa0/12-17)",
+        "dependencias": [
+            "Switch-U_C-Acceso"
+        ]
+    }
+]
